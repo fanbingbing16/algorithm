@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .menu{
+        width:200px;
+        height: 300px;
+        background-color: rgb(242,242,242);
+    }
+    .menu :last-child li{
+        width:100px;
+        height:30px;
+        background-color: rgb(151, 120, 120);
+        display: none;
+    }
+</style>
+<body>
+    <div class="menu">
+        <ul>
+            <li class="li1">查看（V）</li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="lastul">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+    <script>
+        let li1 = document.querySelector('.li1')
+        li1.addEventListener('mouseover',showLi)
+        let lastLi = document.querySelectorAll('.lastul li')
+        function showLi(){
+            
+            lastLi.forEach(item=>{
+               item.style.display = 'block' 
+            })
+            
+        }
+        li1.addEventListener('mouseout',function(){
+            lastLi.forEach(item=>{
+               item.style.display = 'none' 
+            })
+        })
+    </script>
+</body>
+</html>

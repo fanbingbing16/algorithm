@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var  arr1=[1,2,3,4,6,-100,12];
+function getMaxSum(arr){
+	if(!arr || !arr.length){
+		return "数组为空";
+	}
+	var max = 0;
+	var sum = 0;
+	var start = 0;
+	var oldStart = 0;
+	var end = 0;
+	for(var i=0,ln=arr.length;i<ln;i++){
+		if(sum<=0){
+			start = i;
+			sum = 0;
+		}
+		sum += arr[i];
+		if(sum>max){
+			max = sum;
+			end = i;
+			if(end>=start){
+				oldStart = start;
+			}
+		}
+	}
+	return {max:max,start:oldStart,end:end};
+}
+console.log(getMaxSum(arr1));//{"max":15,"start":2,"end":6}
+
+    </script>
+</body>
+</html>

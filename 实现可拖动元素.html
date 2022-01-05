@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+
+    img {
+        position: relative;
+    }
+</style>
+
+<body>
+    <img src="./钉钉.png" alt="">
+    <script>
+        let img = document.querySelector('img')
+        img.addEventListener('mousedown', function (e1) {
+            document.addEventListener('mousemove', function (e) {
+                img.style.top = e.clientX + 'px'
+                img.style.left = e.clientY + 'px'
+            })
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+        })
+
+    </script>
+</body>
+
+</html>

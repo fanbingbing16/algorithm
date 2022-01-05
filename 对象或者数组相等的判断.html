@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = { y: 1, x: 1 }
+        let b = { x: 1, y: 1 }
+        function isEqual(a, b) {
+            if(!a || !b) return false
+            else if(!['[object Object]','[object Array]'].includes(toString.call(a)) || !['[object Object]','[object Array]'].includes(toString.call(b))) return a === b
+            if (Object.keys(a).length !== Object.keys(b).length) return false
+            else if (JSON.stringify(a) === JSON.stringify(b)) {
+                console.log(111);
+                return true
+            } else {
+                console.log(3);
+                let arr1 = Object.keys(a)
+                let arr2 = Object.keys(b)
+                for (let i = 0; i < arr1.length; i++) {
+                    let index = arr2.indexOf(arr1[i])
+                    if (index === -1 || a[arr1[i]] !== b[arr2[index]]) {
+                        return false
+                    }
+
+                }
+              return true
+            }
+            
+        }
+        console.log(isEqual(a,b));
+    </script>
+</body>
+
+</html>
